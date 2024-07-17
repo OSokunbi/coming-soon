@@ -8,7 +8,7 @@ function App() {
       <footer className="text-neutral-500 mt-4 text-center">
         <p className="text-neutral-500 text-lg font-bold">july 2024</p>
       </footer>
-    </div>
+      </div>
   );
 }
 
