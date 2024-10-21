@@ -63,7 +63,7 @@ function App() {
       <footer className="text-neutral-500 mt-4 text-center">
         <p className="text-neutral-500 text-lg font-bold">"{message}"</p>
         <a target="_blank" href="https://www.oresokunbi.blog/" className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold ">- <span className="underline">ore</span></a>
-        <p className="mt-20 text-neutral-100 text-xs">{liveTime}</p>
+        <p className="mt-20 text-neutral-400 text-xs">{liveTime}</p>
       </footer>
     </div>
   );
