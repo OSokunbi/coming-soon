@@ -6,7 +6,7 @@ function App() {
     "hey i'm ore",
     "how u feelin today?",
     "ur music taste says a lot about u",
-    "can i tell i really like music",
+    "can u tell i really like music",
     "see u soon",
   ];
 
