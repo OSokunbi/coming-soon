@@ -5,7 +5,7 @@ function App() {
   const checkInMessages = [
     "hey i'm ore",
     "how u feelin today?",
-    "ur music taste says a lot about u",
+    "ur music taste says a lot",
     "can u tell i really like music",
     "see u soon",
   ];
