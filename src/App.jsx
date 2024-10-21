@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import ComingSoon from './components/ComingSoon';
 import song from './assets/song.mp3';
 import { FaPlay } from "react-icons/fa";
+// analytics from vercel
+import { Analytics } from '@vercel/analytics/react';
 import './App.css'; // Create this for the blinking animation and transitions
 
 function App() {
@@ -91,6 +93,7 @@ function App() {
       </div>
 
       <audio ref={audioRef} src={song} loop />
+      <Analytics/>
     </div>
   );
 }
