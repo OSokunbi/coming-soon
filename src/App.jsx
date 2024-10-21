@@ -4,10 +4,10 @@ import ComingSoon from './components/ComingSoon';
 function App() {
   const checkInMessages = [
     "hey i'm ore",
-    "how are you feeling today?",
-    "ur music taste says a lot about u lol",
-    "can you tell i really like music",
-    "back up soon",
+    "how u feelin today?",
+    "ur music taste says a lot about u",
+    "can i tell i really like music",
+    "see u soon",
   ];
 
   const [liveTime, setLiveTime] = useState(0);
