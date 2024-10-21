@@ -1,18 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ComingSoon from './components/ComingSoon';
+import song from './assets/song.mp3';
+import { FaPlay } from "react-icons/fa";
+import './App.css'; // Create this for the blinking animation and transitions
 
 function App() {
-  const checkInMessages = [
-    "hey i'm ore",
-    "how u feelin today?",
-    "ur music taste says a lot",
-    "can u tell i really like music",
-    "see u soon",
-  ];
-
   const [liveTime, setLiveTime] = useState(0);
-  const [index, setIndex] = useState(0);
-  const [message, setMessage] = useState(checkInMessages[0]);
+  const [isPlaying, setIsPlaying] = useState(false); // Track if audio is playing
+  const [showContent, setShowContent] = useState(false); // Track if content is visible
+  const audioRef = useRef(null); // Ref to control the audio
 
   // Function to update the current date and time with milliseconds
   const getTime = () => {
@@ -22,7 +18,7 @@ function App() {
     const formattedDate = date.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
-      year: 'numeric'
+      year: 'numeric',
     });
 
     // Get time with milliseconds
@@ -32,7 +28,7 @@ function App() {
     const milliseconds = String(date.getMilliseconds()).padStart(3, '0');
 
     const time = `${hours}:${minutes}:${seconds}:${milliseconds}`;
-    
+
     // Combine date and time
     const dateTime = `${formattedDate} ${time}`;
     setLiveTime(dateTime);
@@ -42,29 +38,59 @@ function App() {
     // Update date and time every millisecond
     const timeInterval = setInterval(getTime, 1);
 
-    // Rotate messages every second
-    const messageInterval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % checkInMessages.length);
-    }, 1000);
-
     return () => {
       clearInterval(timeInterval);
-      clearInterval(messageInterval);
     };
-  }, [checkInMessages.length]);
+  }, []);
 
-  useEffect(() => {
-    setMessage(checkInMessages[index]);
-  }, [index, checkInMessages]);
+  // Function to handle play and reveal content
+  const handlePlay = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+      setShowContent(true); // Reveal content after playing
+    }
+  };
 
   return (
-    <div className="w-screen h-screen p-20 justify-center flex flex-col bg-neutral-950">
-      <ComingSoon />
-      <footer className="text-neutral-500 mt-4 text-center">
-        <p className="text-neutral-500 text-lg font-bold">"{message}"</p>
-        <a target="_blank" href="https://www.oresokunbi.blog/" className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold ">- <span className="underline">ore</span></a>
-        <p className="mt-20 text-neutral-400 text-xs">{liveTime}</p>
-      </footer>
+    <div className="w-screen h-screen justify-center flex flex-col bg-neutral-950">
+      {!showContent && (
+        <button
+          onClick={handlePlay}
+          className="animate-pulse text-3xl text-neutral-200 font-bold"
+        >
+        <FaPlay className="inline-block"/>
+        </button>
+      )}
+
+      {/* The content that fades in */}
+      <div className={`content-container ${showContent ? 'fade-in' : 'hidden'}`}>
+        <ComingSoon />
+        <footer className="w-full text-neutral-500 mt-4 text-center">
+          <p className="text-neutral-500 text-md font-bold px-5">
+            hey, orb's gonna be down for a while as i work on better maintaining myself
+            so i can maintain orb. it’ll be back when i can, probably soon. thanks for
+            understanding. take care of urself, if you want u can check out my{' '}
+            <a
+              className="ml-1 underline text-neutral-200"
+              target="_blank"
+              href="https://www.oresokunbi.blog/"
+            >
+              blog
+            </a> here. 
+          </p>
+          <a
+            target="_blank"
+            href="https://www.oresokunbi.blog/"
+            className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold "
+          >
+            - <span className="underline">ore</span>
+          </a>
+          <p className="mt-20 text-neutral-400 text-xs">{liveTime}</p>
+        </footer>
+      </div>
+
+      <audio ref={audioRef} src={song} loop />
     </div>
   );
 }
