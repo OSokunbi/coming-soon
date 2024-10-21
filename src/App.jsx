@@ -53,7 +53,7 @@ function App() {
   };
 
   return (
-    <div className="overflow-hidden w-screen h-screen justify-center flex flex-col bg-neutral-950">
+    <div className="overflow-hidden w-screen min-h-screen justify-center flex flex-col bg-neutral-950">
       {!showContent && (
         <button
           onClick={handlePlay}
