@@ -1,17 +1,3 @@
-/* CSS to make the play button blink */
-.play-button-blink {
-  font-size: 2rem;
-  animation: blink 1s step-start infinite;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
 
 /* Initially hide the content */
 .hidden {
