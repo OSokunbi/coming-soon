@@ -68,27 +68,17 @@ function App() {
       {/* The content that fades in */}
       <div className={`content-container ${showContent ? 'fade-in' : 'hidden'}`}>
         <ComingSoon />
-        <footer className="w-full text-neutral-500 mt-4 text-center">
-          <p className="text-neutral-500 text-md font-bold px-5">
-            hey, orb's gonna be down for a while as i work on better maintaining myself
-            so i can maintain orb. it’ll be back when i can, probably soon. thanks for
-            understanding. take care of urself, if you want u can check out my{' '}
-            <a
-              className="ml-1 underline text-neutral-200"
+        <footer className="w-full flex flex-col items-center text-neutral-500 mt-4 text-center">
+          <p className="max-w-96 text-neutral-500 text-lg font-bold px-5">
+            hi, this is           <a
               target="_blank"
               href="https://www.oresokunbi.blog/"
+              className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold "
             >
-              blog
-            </a> here. 
+            <span className="underline">ore</span>
+            </a>. orb's founder, creator, owner whatever. orb is going bye bye now. see u in december with something entirely different :D.  
           </p>
-          <a
-            target="_blank"
-            href="https://www.oresokunbi.blog/"
-            className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold "
-          >
-            - <span className="underline">ore</span>
-          </a>
-          <p className="mt-20 text-neutral-400 text-xs">{liveTime}</p>
+          <p className="mt-5 text-neutral-400 text-xs">{liveTime}</p>
         </footer>
       </div>
 
