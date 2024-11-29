@@ -76,7 +76,7 @@ function App() {
               className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold "
             >
             <span className="underline">ore</span>
-            </a>. orb's founder, creator, owner whatever. orb is going bye bye now. see u in december with something entirely different :D.  
+            </a>. how do you feel?  
           </p>
           <p className="mt-5 text-neutral-400 text-xs">{liveTime}</p>
         </footer>
