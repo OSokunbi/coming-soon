@@ -76,8 +76,9 @@ function App() {
               className="hover:text-neutral-400 transition-colors duration-300 text-neutral-200 text-lg font-bold "
             >
             <span className="underline">ore</span>
-            </a>. how do you feel?  
+            </a>.
           </p>
+          <p className="max-w-96 text-neutral-500 text-lg font-bold px-5">how do you feel?</p>
           <p className="mt-5 text-neutral-400 text-xs">{liveTime}</p>
         </footer>
       </div>
